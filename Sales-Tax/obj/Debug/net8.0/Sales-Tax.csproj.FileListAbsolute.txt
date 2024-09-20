@@ -1,0 +1,14 @@
+D:\Projects\Sales-Tax\Sales-Tax\bin\Debug\net8.0\Sales-Tax.exe
+D:\Projects\Sales-Tax\Sales-Tax\bin\Debug\net8.0\Sales-Tax.deps.json
+D:\Projects\Sales-Tax\Sales-Tax\bin\Debug\net8.0\Sales-Tax.runtimeconfig.json
+D:\Projects\Sales-Tax\Sales-Tax\bin\Debug\net8.0\Sales-Tax.dll
+D:\Projects\Sales-Tax\Sales-Tax\bin\Debug\net8.0\Sales-Tax.pdb
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.AssemblyInfoInputs.cache
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.AssemblyInfo.cs
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.csproj.CoreCompileInputs.cache
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.dll
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\refint\Sales-Tax.dll
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.pdb
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.genruntimeconfig.cache
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\ref\Sales-Tax.dll
