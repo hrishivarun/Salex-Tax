@@ -7,7 +7,7 @@ This is a console-based Sales Tax calculator program that takes in the details o
 When you run the program, you will be prompted to input the details of items in your order and whether you wish to add more items or orders. After all inputs are provided, the program will display the receipt.
 
 
-### Please run the following command to run the application -
+### To run the application, please run the following command in terminal from the root directory -
 ```
 cd .\Sales-Tax\
 dotnet run
