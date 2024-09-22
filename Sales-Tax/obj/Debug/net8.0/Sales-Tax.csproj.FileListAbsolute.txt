@@ -12,3 +12,4 @@ D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\refint\Sales-Tax.dll
 D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.pdb
 D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.genruntimeconfig.cache
 D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\ref\Sales-Tax.dll
+D:\Projects\Sales-Tax\Sales-Tax\obj\Debug\net8.0\Sales-Tax.sourcelink.json
