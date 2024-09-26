@@ -1,46 +1,38 @@
 ﻿// // See https://aka.ms/new-console-template for more information
+using System.Text;
 using Classes;
+using Parser;
 
-List<Order> orders = new List<Order>();
-
-bool continueTakingInput = true;
-Console.WriteLine("\n\nWelcome to our Receipt Controller!!!\n\n");
-while (continueTakingInput)
-{
-    List<PurchasedItem> items = new List<PurchasedItem>();
-
-    Console.WriteLine("Please items and their details!\n");
-    bool takeAnotherInput = true;
-
-    while (takeAnotherInput)
+namespace ReceiptApp
+{    class Program
     {
-        Console.WriteLine("\nEnter item details: \n");
-        string details = Console.ReadLine().Trim();
-        PurchasedItem item = new PurchasedItem(details).ParseDetailString();
-        items.Add(item);
-
-        Console.WriteLine("\nAdd more items?(y/n)---(Default: y) : ");
-        string addMoreItems = Console.ReadLine().Trim().ToLower();
-        if (!addMoreItems.Equals("") && !addMoreItems.Equals("y"))
+        static void Main(string[] args)
         {
-            takeAnotherInput = false;
+            Console.WriteLine("\n\nWelcome to our Receipt Controller!!!\n");
+            Console.WriteLine("\n\nINPUT : \n");
+
+            StringBuilder inputBuilder = new StringBuilder();
+            while (true)
+            {
+                string line = Console.ReadLine();
+                if (string.IsNullOrEmpty(line))
+                {
+                    break;
+                }
+                inputBuilder.AppendLine(line);
+            }
+
+            var input = inputBuilder.ToString();
+
+            var orders = ReceiptParser.ParseInput(input);
+
+            var output = ReceiptParser.GetOutput(orders);
+
+            Console.WriteLine(output);
         }
     }
-    orders.Add(new Order(items));
-
-    Console.WriteLine("\n\nAdd more orders?(y/n)---(Default: y) : ");
-    string addMoreOrders = (Console.ReadLine()).Trim().ToLower();
-    if (!addMoreOrders.Equals("") && !addMoreOrders.Equals("y"))
-    {
-        continueTakingInput = false;
-    }
 }
 
-Console.WriteLine("\n\n\nReceipts: - \n");
-foreach (var order in orders)
-{
-    order.PrintReceipt();
-}
 
 
 

@@ -1,14 +1,7 @@
+
 using System.Globalization;
 
 namespace Classes;
-
-class Constants
-{
-  public static double SalesTaxPercentage = 10;
-  public static double ImportTaxPercentage = 5;
-  public static int RoundingConst = 2;
-};
-
 class PurchasedItem
 {
   public static List<string> ExemptedItems = new List<string>
@@ -128,38 +121,3 @@ class PurchasedItem
     return new PurchasedItem(itemName, itemPrice, itemCount, itemImported);
   }
 };
-
-class Order
-{
-  private List<PurchasedItem> items = new List<PurchasedItem>();
-
-  public Order(List<PurchasedItem> purchasedItems)
-  {
-    items = purchasedItems;
-  }
-
-  public void PrintReceipt()
-  {
-    double totalSalesTaxes = 0;
-    double totalCost = 0;
-    Console.WriteLine("\nReceipt:-\n");
-    foreach(var item in items)
-    {
-      var itemName = item.GetName();
-      var itemPrice = item.GetPrice();
-      var itemCount = item.GetCount();
-      var itemImported = item.GetImportStatus();
-      var totalTax = item.GetTotalTax();
-      var totalPrice = Math.Round((itemPrice*itemCount) + totalTax, Constants.RoundingConst);
-      
-      Console.WriteLine($"{itemCount} {itemName}: {totalPrice}\n");
-      totalSalesTaxes += totalTax;
-      totalCost += totalPrice;
-    }
-    
-    Console.WriteLine($"Sales Tax: {totalSalesTaxes}\n");
-    Console.WriteLine($"Total: {totalCost}\n\n");
-  }
-
-};
-
