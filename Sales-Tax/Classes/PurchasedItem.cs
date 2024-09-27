@@ -26,6 +26,8 @@ class PurchasedItem
   public PurchasedItem(string details)
   {
     Details = details;
+    ParseDetailString();
+    CalculateTax();
   }
   public PurchasedItem(string name, double price, int count, bool imported)
   {
@@ -63,7 +65,6 @@ class PurchasedItem
     bool isExempted = false;
     foreach(var (entry, value) in ExemptedItemNames)
     {
-        // do something with entry.Value or entry.Key
         foreach(var itemName in value)
         {
           if(Name.Contains(itemName))
@@ -83,7 +84,7 @@ class PurchasedItem
   {
     if(!Imported)
       return 0;
-    double importTaxPerPiece = Price * Constants.ImportTaxPercentage / 100;
+    double importTaxPerPiece = (Price * Constants.ImportTaxPercentage) / 100;
     return importTaxPerPiece*Count;
   }
 
@@ -93,7 +94,7 @@ class PurchasedItem
     return TotalTax;
   }
 
-  public PurchasedItem ParseDetailString()
+  public void ParseDetailString()
   {
     bool itemImported = Details.Contains("imported") ? true:false;
 
@@ -118,6 +119,9 @@ class PurchasedItem
     //Extract name of item from details string
     string itemName = Details.Substring(intCounter, doubleCounter-intCounter+1);
 
-    return new PurchasedItem(itemName, itemPrice, itemCount, itemImported);
+    Name = itemName;
+    Price = itemPrice;
+    Count = itemCount;
+    Imported = itemImported;
   }
 };

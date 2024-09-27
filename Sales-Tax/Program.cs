@@ -8,25 +8,29 @@ namespace ReceiptApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\n\nWelcome to our Receipt Controller!!!\n");
-            Console.WriteLine("\n\nINPUT : \n");
+            string Welcome = 
+            @"
+Welcome to our Receipt Controller!!!
+INPUT : 
+            ";
+            Console.WriteLine($"{Welcome}");
 
-            StringBuilder inputBuilder = new StringBuilder();
+            string input = string.Empty;
             while (true)
             {
-                string line = Console.ReadLine();
-                if (string.IsNullOrEmpty(line))
+                var inputLine = Console.ReadLine();
+
+                // If the user presses Enter on an empty line, break the loop
+                if (string.IsNullOrWhiteSpace(inputLine))
                 {
                     break;
                 }
-                inputBuilder.AppendLine(line);
+
+                input = $"{input}\n{inputLine}";
             }
 
-            var input = inputBuilder.ToString();
-
-            var orders = ReceiptParser.ParseInput(input);
-
-            var output = ReceiptParser.GetOutput(orders);
+            var order = ReceiptParser.ParseInput(input);
+            var output = ReceiptParser.GetOutput(order);
 
             Console.WriteLine(output);
         }

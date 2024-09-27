@@ -14,11 +14,7 @@ class Order
     string orderOutput = string.Empty;
     double totalSalesTaxes = 0;
     double totalCost = 0;
-    Console.WriteLine("\nReceipt:-\n");
-    for(int i=0; i<items.Count; i++)
-    {
-      var item = items[i];
-    }
+    
     foreach(var item in items)
     {
       var itemName = item.GetName();
