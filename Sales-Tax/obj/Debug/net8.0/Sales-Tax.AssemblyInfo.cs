@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sales-Tax")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de6c311ea94984bfd41e6b5196b3cd90ff184c7e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e770d60c1c3afdb87db4198f92f6f7161dcc566")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sales-Tax")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sales-Tax")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
