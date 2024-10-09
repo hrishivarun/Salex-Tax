@@ -1,7 +1,7 @@
 
 using System.Globalization;
 
-namespace Classes;
+namespace Models;
 class PurchasedItem
 {
   public static List<string> ExemptedItems = new List<string>
@@ -12,23 +12,17 @@ class PurchasedItem
   public static Dictionary<string, List<string>> ExemptedItemNames = new Dictionary<string, List<string>>
   {
     { "book", new List<string>{"book"} },
-    { "food", new List<string>{ "chocolate" } },
-    { "medicine", new List<string>{ "pill" } }
+    { "food", new List<string>{ "chocolate", "food" } },
+    { "medicine", new List<string>{ "pill", "medicine" } }
   };
 
   private string Name { get; set; } = string.Empty;
-  private string Details { get; set; } = string.Empty;
   private double Price { get; set; } = 0;
   private int Count { get; set; } = 0;
   private bool Imported { get; set; } = false;
   private double TotalTax { get; set; } = 0;
+  private double TotalCost { get; set; } = 0;
 
-  public PurchasedItem(string details)
-  {
-    Details = details;
-    ParseDetailString();
-    CalculateTax();
-  }
   public PurchasedItem(string name, double price, int count, bool imported)
   {
     Name = name;
@@ -36,7 +30,8 @@ class PurchasedItem
     Count = count;
     Imported = imported;
 
-    CalculateTax();
+    TotalTax = CalculateTax();
+    TotalCost = CalculateTotalCost();
   }
 
   //=====================================================================================
@@ -65,6 +60,10 @@ class PurchasedItem
   {
     return Math.Round(TotalTax, Constants.RoundingConst);
   }
+  private double CalculateTotalCost()
+  {
+    return Math.Round((Price*Count) + TotalTax, Constants.RoundingConst);
+  }
   //=====================================================================================
   //=====================================================================================
   #endregion
@@ -74,10 +73,10 @@ class PurchasedItem
   
   //=====================================================================================
   //=====================================================================================
-  #region SalesTaxCalc
+  #region TaxCalc
   //=====================================================================================
   //=====================================================================================
-  public double CalculateSalesTax()
+  private double CalculateSalesTax()
   {
     bool isExempted = false;
     foreach(var (entry, value) in ExemptedItemNames)
@@ -96,73 +95,17 @@ class PurchasedItem
     double salesTaxPerPiece = Price * Constants.SalesTaxPercentage / 100;
     return salesTaxPerPiece*Count;
   }
-  //=====================================================================================
-  //=====================================================================================
-  #endregion
-  //=====================================================================================
-  //=====================================================================================
-
-
-  //=====================================================================================
-  //=====================================================================================
-  #region ImportTaxCalc
-  //=====================================================================================
-  //=====================================================================================
-  public double CalculateImportTax()
+  private double CalculateImportTax()
   {
     if(!Imported)
       return 0;
     double importTaxPerPiece = (Price * Constants.ImportTaxPercentage) / 100;
     return importTaxPerPiece*Count;
   }
-  //=====================================================================================
-  //=====================================================================================
-  #endregion
-  //=====================================================================================
-  //=====================================================================================
-
-  public double CalculateTax()
+  private double CalculateTax()
   {
-    TotalTax = CalculateSalesTax()+CalculateImportTax();
-    return TotalTax;
+    return CalculateSalesTax()+CalculateImportTax();
   }
-
-  //=====================================================================================
-  //=====================================================================================
-  #region ParseString
-  //=====================================================================================
-  //=====================================================================================
-  public void ParseDetailString()
-  {
-    bool itemImported = Details.Contains("imported") ? true:false;
-
-    //Extract count of item from details string
-    int intCounter=0;
-    int itemCount = 0;
-    while(Details.ElementAt(intCounter)>=48 && Details.ElementAt(intCounter)<=57)
-    {
-      itemCount = (itemCount*10) + Details.ElementAt(intCounter)-'0';
-      intCounter++;
-    }
-
-    //Extract price of item from details string
-    int doubleCounter=Details.Length-1;
-    while (doubleCounter >= 0 && (char.IsDigit(Details[doubleCounter]) || Details[doubleCounter] == '.' || Details[doubleCounter] == ','))
-    {
-        doubleCounter--;
-    }
-    string numberPart = Details.Substring(doubleCounter + 1).Trim();
-    double itemPrice = double.Parse(numberPart, CultureInfo.InvariantCulture);
-
-    //Extract name of item from details string
-    string itemName = Details.Substring(intCounter, doubleCounter-intCounter+1);
-
-    Name = itemName;
-    Price = itemPrice;
-    Count = itemCount;
-    Imported = itemImported;
-  }
-  
   //=====================================================================================
   //=====================================================================================
   #endregion

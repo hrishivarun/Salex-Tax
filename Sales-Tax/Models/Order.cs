@@ -1,39 +1,16 @@
-namespace Classes;
+namespace Models;
 
 class Order
 {
-  private List<PurchasedItem> items = new List<PurchasedItem>();
+  private List<PurchasedItem> Items = new List<PurchasedItem>();
 
   public Order(List<PurchasedItem> purchasedItems)
   {
-    items = purchasedItems;
+    Items = purchasedItems;
   }
 
-  public string GetReceipt()
+  public List<PurchasedItem> GetPurchasedItems()
   {
-    string orderOutput = string.Empty;
-    double totalSalesTaxes = 0;
-    double totalCost = 0;
-    
-    foreach(var item in items)
-    {
-      var itemName = item.GetName();
-      var itemPrice = item.GetPrice();
-      var itemCount = item.GetCount();
-      var itemImported = item.GetImportStatus();
-      var totalTax = item.GetTotalTax();
-      var totalPrice = Math.Round((itemPrice*itemCount) + totalTax, Constants.RoundingConst);
-      
-      orderOutput += $"{itemCount} {itemName}: {totalPrice}\n";
-
-      totalSalesTaxes += totalTax;
-      totalCost += totalPrice;
-    }
-    
-    orderOutput += $"Sales Tax: {totalSalesTaxes}\n";
-    orderOutput += $"Total: {totalCost}\n\n";
-    
-    return orderOutput;
+    return Items;
   }
-
 };

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj": {}
+    "d:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj": {
+    "d:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj",
+        "projectUniqueName": "d:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj",
         "projectName": "Sales-Tax",
-        "projectPath": "D:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj",
+        "projectPath": "d:\\Projects\\Sales-Tax\\Sales-Tax\\Sales-Tax.csproj",
         "packagesPath": "C:\\Users\\hrish\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Sales-Tax\\Sales-Tax\\obj\\",
+        "outputPath": "d:\\Projects\\Sales-Tax\\Sales-Tax\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hrish\\AppData\\Roaming\\NuGet\\NuGet.Config"

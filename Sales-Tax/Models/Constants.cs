@@ -1,5 +1,5 @@
 
-namespace Classes;
+namespace Models;
 class Constants
 {
   public static double SalesTaxPercentage = 10;
